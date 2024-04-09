@@ -17,7 +17,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1', require('./routes/index'));
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
+app.use(cors());
+
+
+app.use(bodyParser.json());
 
 mongoose.connect('mongodb+srv://hadi:Vy070902.@hadi.pmnevde.mongodb.net/TestS3').then(function () {
   console.log("conneted");
